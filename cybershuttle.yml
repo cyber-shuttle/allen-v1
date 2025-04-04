@@ -21,17 +21,17 @@ workspace:
     queue: shared
   model_collection:
     - source: cybershuttle
-      identifier: lgn_stimulus
+      identifier: ~/cybershuttle/dataset/lgn_stimulus
       mount_point: /data/lgn_stimulus
     - source: cybershuttle
-      identifier: v1_point
+      identifier: ~/cybershuttle/dataset/v1_point
       mount_point: /data/v1_point
   data_collection:
     - source: cybershuttle
-      identifier: lgn_stimulus_configs
+      identifier: ~/cybershuttle/dataset/lgn_stimulus_configs
       mount_point: /data/lgn_stimulus_configs
     - source: cybershuttle
-      identifier: v1_point_configs
+      identifier: ~/cybershuttle/dataset/v1_point_configs
       mount_point: /data/v1_point_configs
 
 additional_dependencies:
