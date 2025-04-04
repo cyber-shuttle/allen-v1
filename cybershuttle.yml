@@ -1,7 +1,7 @@
 project:
   name: Run a full simulation of the point-neuron V1 network with thalamacortical (LGN) and background (BKG) inputs.
   version: 1.0.0
-  description: This repository contains notebooks and configurations to run a full simulation of the point-neuron V1 network with thalamacortical (LGN) and background (BKG) inputs."
+  description: This repository contains notebooks and configurations to run a full simulation of the point-neuron V1 network with thalamacortical (LGN) and background (BKG) inputs.
   tags:
     - neuroscience
     - visual_cortex
@@ -9,8 +9,33 @@ project:
     - lgn
   homepage: https://github.com/yasithdev/allen-v1
 
-environment:
-  dependencies:
+workspace:
+  location: /workspace
+  resources:
+    min_cpu: 4
+    min_gpu: 0
+    min_mem: 4096
+    walltime: 60
+    cluster: Anvil
+    group: Cerebrum
+    queue: shared
+  model_collection:
+    - source: cybershuttle
+      identifier: lgn_stimulus
+      mount_point: /data/lgn_stimulus
+    - source: cybershuttle
+      identifier: v1_point
+      mount_point: /data/v1_point
+  data_collection:
+    - source: cybershuttle
+      identifier: lgn_stimulus_configs
+      mount_point: /data/lgn_stimulus_configs
+    - source: cybershuttle
+      identifier: v1_point_configs
+      mount_point: /data/v1_point_configs
+
+additional_dependencies:
+  conda:
     - python=3.10
     - pip
     - ipywidgets
@@ -31,23 +56,11 @@ environment:
     - pydantic=2.7
     - anndata
     - parse
-    - pip:
-        - allensdk
-        - bmtk
-        - pytree
-        - git+https://github.com/alleninstitute/abc_atlas_access
-        - git+https://github.com/alleninstitute/neuroanalysis
-        - git+https://github.com/alleninstitute/aisynphys
-        - git+https://github.com/lahirujayathilake/mousev1
-
-workspace:
-  location: /workspace
-  resources:
-    min_cpu: 16
-    min_gpu: 0
-    min_mem: 16G
-    min_disk: 32G
-  data_sources:
-    - type: cybershuttle
-      identifier: <SUBSTITUTE_CORRECT_ID>
-      mount_point: /workspace/data
+  pip:
+    - allensdk
+    - bmtk
+    - pytree
+    - git+https://github.com/alleninstitute/abc_atlas_access
+    - git+https://github.com/alleninstitute/neuroanalysis
+    - git+https://github.com/alleninstitute/aisynphys
+    - git+https://github.com/lahirujayathilake/mousev1
