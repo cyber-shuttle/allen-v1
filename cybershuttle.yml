@@ -14,10 +14,12 @@ workspace:
   resources:
     min_cpu: 4
     min_gpu: 0
+    gpu_mem: 1024
+    gpu_class: ["H100", "A100", "Generic"]
     min_mem: 4096
     walltime: 60
-    cluster: Anvil
-    group: Cerebrum
+    cluster: expanse
+    group: Default
     queue: shared
   model_collection:
     - source: cybershuttle
@@ -39,28 +41,9 @@ additional_dependencies:
     - python=3.10
     - pip
     - ipywidgets
-    - numba
-    - numpy=1.23.5
-    - matplotlib
-    - openpyxl
+    - numpy
     - pandas
-    - pyqtgraph
-    - pyyaml
-    - requests
-    - scipy
-    - sqlalchemy
-    - tqdm
+    - matplotlib
     - nest-simulator
-    - ipytree
-    - python-jsonpath
-    - pydantic=2.7
-    - anndata
-    - parse
-  pip:
-    - allensdk
-    - bmtk
-    - pytree
-    - git+https://github.com/alleninstitute/abc_atlas_access
-    - git+https://github.com/alleninstitute/neuroanalysis
-    - git+https://github.com/alleninstitute/aisynphys
-    - git+https://github.com/lahirujayathilake/mousev1
+    - kaeldai::bmtk
+  pip: []
