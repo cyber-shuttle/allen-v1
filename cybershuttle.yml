@@ -7,34 +7,21 @@ project:
     - visual_cortex
     - v1
     - lgn
-  homepage: https://github.com/yasithdev/allen-v1
+  homepage: https://github.com/cyber-shuttle/allen-v1
 
 workspace:
   location: /workspace
   resources:
     min_cpu: 4
     min_gpu: 0
+    min_mem: 4096
     gpu_mem: 1024
     gpu_class: ["H100", "A100", "Generic"]
-    min_mem: 4096
-    walltime: 60
-    cluster: expanse
-    group: Default
-    queue: shared
   model_collection:
     - source: cybershuttle
-      identifier: ~/cybershuttle/dataset/lgn_stimulus
-      mount_point: /data/lgn_stimulus
-    - source: cybershuttle
-      identifier: ~/cybershuttle/dataset/v1_point
-      mount_point: /data/v1_point
-  data_collection:
-    - source: cybershuttle
-      identifier: ~/cybershuttle/dataset/lgn_stimulus_configs
-      mount_point: /data/lgn_stimulus_configs
-    - source: cybershuttle
-      identifier: ~/cybershuttle/dataset/v1_point_configs
-      mount_point: /data/v1_point_configs
+      identifier: allenai-v1
+      mount_point: /data
+  data_collection: []
 
 additional_dependencies:
   conda:
