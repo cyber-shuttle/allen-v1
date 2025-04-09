@@ -20,7 +20,7 @@ workspace:
   model_collection:
     - source: cybershuttle
       identifier: allenai-v1
-      mount_point: /data
+      mount_point: /cybershuttle_data/allenai-v1
   data_collection: []
 
 additional_dependencies:
